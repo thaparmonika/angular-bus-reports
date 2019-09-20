@@ -19,3 +19,9 @@
 .status-late {
   color:blue;
 }
+.bus-report-table th{
+  background-color: #d9edf7;
+  color: black;
+  font-weight: bold;
+}
+
