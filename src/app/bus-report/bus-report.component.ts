@@ -9,6 +9,7 @@ import { BusReport } from './bus-report';
 })
 export class BusReportComponent implements OnInit {
   @Input() BusReport: BusReport;
+  displayedColumns: string[] = ['busId', 'routeVariant', 'deviationFromTimetable'];
   constructor() { }
 
   ngOnInit() {
