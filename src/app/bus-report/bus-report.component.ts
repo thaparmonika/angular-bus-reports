@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { BusReport } from './bus-report';
 
@@ -10,8 +11,12 @@ import { BusReport } from './bus-report';
 export class BusReportComponent implements OnInit {
   @Input() BusReport: BusReport;
   displayedColumns: string[] = ['busId', 'routeVariant', 'deviationFromTimetable'];
-  constructor() { }
-
+  constructor(private _snackBar: MatSnackBar) {}
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   ngOnInit() {
   }
 
