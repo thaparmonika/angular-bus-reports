@@ -6,11 +6,21 @@
   </ng-container>
   <ng-container matColumnDef="routeVariant">
     <th mat-header-cell *matHeaderCellDef> Route Variant </th>
-    <td mat-cell *matCellDef="let element"> {{element.routeVariant}} </td>
+    <td mat-cell *matCellDef="let element"> <span *ngIf="element.routeVariant.toUpperCase()!='UNKNOWN'; else UNKNOWN"><span class="bold">{{element.routeVariant.trim().slice(0,3)}}</span>{{element.routeVariant.trim().slice(3)}}</span> 
+    <ng-template #UNKNOWN><span class="status-unknown">{{element.routeVariant}}</span></ng-template>
+    </td>
   </ng-container>
   <ng-container matColumnDef="deviationFromTimetable">
     <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let element"> {{element.deviationFromTimetable}} </td>
+    <td mat-cell *matCellDef="let element"> 
+      <span [ngSwitch]="element.deviationFromTimetable <= 250 && element.deviationFromTimetable >= -250 ? 'status-on-time' : element.deviationFromTimetable > 250 ? 'status-late' : element.deviationFromTimetable < -250 ? 'status-early' : ''">
+        <span *ngSwitchCase="'status-on-time'" class="status-on-time">On Time</span>
+        <span *ngSwitchCase="'status-late'" class="status-late">Late</span>
+        <span *ngSwitchCase="'status-early'" class="status-early">Early</span>
+        <span *ngSwitchDefault>Unknown</span>
+      </span>
+
+    </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

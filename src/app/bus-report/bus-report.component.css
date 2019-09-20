@@ -4,3 +4,18 @@
 .bus-report-form{
   padding-top: 10px;
 }
+.bold {
+  font-weight: bold;
+}
+.status-unknown {
+  color:grey;
+}
+.status-early {
+  color:red;
+}
+.status-on-time {
+  color:darkgreen;
+}
+.status-late {
+  color:blue;
+}
