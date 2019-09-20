@@ -1,5 +1,5 @@
-<div *ngFor="let busList of busData; index as i">
-  <mat-expansion-panel [expanded]="i==0"> 
+<div *ngFor="let busList of busData">
+  <mat-expansion-panel> 
   <mat-expansion-panel-header>
     <mat-panel-title>
       {{busList.organisation}} - {{busList.date}}
