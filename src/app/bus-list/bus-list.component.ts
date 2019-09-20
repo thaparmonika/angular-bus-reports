@@ -6,7 +6,6 @@ import { BusDataService } from '../bus-data.service';
 @Component({
   selector: 'app-bus-list',
   templateUrl: './bus-list.component.html',
-  providers: [BusDataService],
   styleUrls: ['./bus-list.component.css']
 })
 export class BusListComponent implements OnInit {
@@ -18,6 +17,6 @@ export class BusListComponent implements OnInit {
     this.getBusData();
   }
  getBusData(): void {
-    this.busDataService.getBusData().subscribe(busData => (this.busData = busData));
+    this.busDataService.getBusData().subscribe(busData => (this.busData = busData['data']));
   }
 }

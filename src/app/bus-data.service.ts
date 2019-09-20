@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { BusList } from './bus-list/bus-list';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BusDataService {
 
   busDataUrl = 'assets/bus-services-data.json';
@@ -11,6 +13,6 @@ export class BusDataService {
   constructor(private http: HttpClient) { }
 
   getBusData() {
-    return this.http.get<BusList[]>(this.busDataUrl);
+    return this.http.get(this.busDataUrl);
   }
 }

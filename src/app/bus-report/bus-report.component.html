@@ -1,3 +1,7 @@
-<p>
-bus-report works!
-</p>
+<div *ngFor="let bus of BusReport">
+    {{bus.busId}}, {{bus.routeVariant}}, {{bus.deviationFromTimetable}}
+</div>
+<div>
+  <textarea placeholder="Enter Notes here"></textarea>
+</div>
+<button>Submit</button>

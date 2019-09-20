@@ -1,3 +1,4 @@
-<p>
-bus-list works!
-</p>
+<div *ngFor="let busList of busData">
+  {{busList.organisation}} - {{busList.date}}
+  <app-bus-report [BusReport]="busList.busData"></app-bus-report>
+</div>
